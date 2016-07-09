@@ -278,7 +278,7 @@ def main():
     parser = argparse.ArgumentParser(description="Process Troopmaster Scout File")
 
     parser.add_argument('infile', type=argparse.FileType('rb'))
-    parser.add_argument('--config', required=True, type=argparse.FileType('rb'),
+    parser.add_argument('--config', required=False, type=argparse.FileType('rb'),
                         metavar='activity.cfg', default='activity.cfg')
     parser.add_argument('--adult-infile', required=False, type=argparse.FileType('rb'),
                         metavar='Adult.txt', default='Adult.txt',
