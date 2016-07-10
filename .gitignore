@@ -62,3 +62,6 @@ target/
 # Working Files  
 *.csv
 *.txt
+
+# IDE
+.idea/

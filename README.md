@@ -77,3 +77,9 @@ adult.py
 parse_activity_report.py
     Parse the activity report into something appropriate for Scoutbook.
 
+partial_mb.py
+    Partial merit badges
+   
+partial_advancement.py
+    Partial advancement
+    
