@@ -172,7 +172,7 @@ def check_match(exp, line):
 def parse_activity(buf):
     found_matches = {}
     markername_p = False
-    for line in buf:
+    for line_no, line in enumerate(buf):
         # The markername appears right before we start seeing a list of names
         # this helps keep the activity metadata fields separate and avoids
         # some accidental parsing.
@@ -233,11 +233,17 @@ def parse_activity(buf):
                 if 'Remarks' in found_matches:
                     remarks = found_matches['Remarks']
 
-                if 'Location' not in found_matches:
-                    print "There is a problem."
-                    print line 
-                    print found_matches
-                    next
+                location = ''
+                if 'Location' in found_matches:
+                    location = found_matches['Location']
+                else:
+                    if remarks:
+                        location = remarks
+                    else:
+                        print "There is a problem."
+                        print line_no, line
+                        print found_matches
+                        next
 
                 try:
                     activity_type = found_matches['Activity Type']
@@ -258,7 +264,7 @@ def parse_activity(buf):
                             [bsa_id, first, middle_name, last,
                             found_matches['Activity Date'],
                             credit,
-                            found_matches['Location'],
+                            location,
                              remarks])
                     except:
                         print buf
