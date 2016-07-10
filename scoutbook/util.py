@@ -14,6 +14,8 @@
    limitations under the License.
 """
 
+activities_header_string = "BSA Member ID,First Name,Middle Name,Last Name,Advancement Type,Advancement, Version,Date Completed,Approved,Awarded"
+
 import csv
 
 class InvalidPosition(Exception):
